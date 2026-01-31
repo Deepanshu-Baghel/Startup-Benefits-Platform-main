@@ -1,12 +1,18 @@
 'use client';
 import Link from 'next/link';
 import { useAuth } from '../context/AuthContext';
+import { motion } from 'framer-motion';
 
 const Navbar = () => {
     const { user, logout } = useAuth();
 
     return (
-        <nav className="border-b border-white/10 bg-black/50 backdrop-blur-xl sticky top-0 z-50">
+        <motion.nav
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="bg-black/30 backdrop-blur-xl sticky top-4 mx-4 rounded-2xl border border-white/10 shadow-2xl shadow-purple-500/10 z-50"
+        >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     <div className="flex items-center">
@@ -17,6 +23,9 @@ const Navbar = () => {
                             <div className="ml-10 flex items-baseline space-x-4">
                                 <Link href="/deals" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-white/5">
                                     Deals
+                                </Link>
+                                <Link href="#features" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-white/5">
+                                    FAQs
                                 </Link>
                                 {user && (
                                     <Link href="/dashboard" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-white/5">
@@ -47,7 +56,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-        </nav>
+        </motion.nav>
     );
 };
 
