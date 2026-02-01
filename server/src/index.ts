@@ -27,10 +27,7 @@ app.use(cors({
         if (!origin) return callback(null, true);
 
         // Allow any localhost origin for development
-        if (allowedOrigins.indexOf(origin) !== -1 || origin.startsWith('http://localhost:')) {
-            return callback(null, true);
-        }
-
+      
         const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
         return callback(new Error(msg), false);
     },
