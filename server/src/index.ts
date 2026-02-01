@@ -17,7 +17,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 const allowedOrigins = [
-    'http://localhost:3000',
+    'https://startup-benefits-platform-main-xh04.onrender.com',
     'https://startup-benefits-platform.vercel.app'
 ];
 
